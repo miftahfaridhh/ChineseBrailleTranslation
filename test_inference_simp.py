@@ -18,6 +18,6 @@ output_sequences = model.generate(
 translated_text = tokenizer.decode(output_sequences[0], skip_special_tokens=True)
 print(f"{translated_text=}")
 print(f"{ground_truth=}")
-metric = evaluate.load("models/metrics/sacrebleu")
+metric = evaluate.load("sacrebleu")
 results = metric.compute(predictions=[translated_text], references=[[ground_truth]])
 print(f"{results=}")
